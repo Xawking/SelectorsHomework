@@ -11,7 +11,7 @@ public class NewCardFormTest {
     @Test
     void shouldRespond200() throws InterruptedException {
 
-        open("http://localhost:9999");
+        open("http://0.0.0.0:9999");
         $("[data-test-id='name'] input").setValue("Римский-Корсаков Николай");
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
@@ -22,7 +22,7 @@ public class NewCardFormTest {
     @Test
     void noAgreementFlag() throws InterruptedException {
 
-        open("http://localhost:9999");
+        open("http://0.0.0.0:9999");
         $("[data-test-id='name'] input").setValue("Павел");
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $(".button").click();
@@ -32,7 +32,7 @@ public class NewCardFormTest {
     @Test
     void phoneTwelveNumbers() throws InterruptedException {
 
-        open("http://localhost:9999");
+        open("http://0.0.0.0:9999");
         $("[data-test-id='name'] input").setValue("Римский-Корсаков Николай");
         $("[data-test-id='phone'] input").setValue("+790123456780");
         $("[data-test-id=agreement]").click();
@@ -43,7 +43,7 @@ public class NewCardFormTest {
     @Test
     void phoneTenNumbers() throws InterruptedException {
 
-        open("http://localhost:9999");
+        open("http://0.0.0.0:9999");
         $("[data-test-id='name'] input").setValue("Римский-Корсаков Николай");
         $("[data-test-id='phone'] input").setValue("+7901234567");
         $("[data-test-id=agreement]").click();
@@ -54,7 +54,7 @@ public class NewCardFormTest {
     @Test
     void phoneLetters() throws InterruptedException {
 
-        open("http://localhost:9999");
+        open("http://0.0.0.0:9999");
         $("[data-test-id='name'] input").setValue("Римский-Корсаков Николай");
         $("[data-test-id='phone'] input").setValue("Римский-Корсаков Николай");
         $("[data-test-id=agreement]").click();
@@ -65,7 +65,7 @@ public class NewCardFormTest {
     @Test
     void nameFieldEmpty() throws InterruptedException {
 
-        open("http://localhost:9999");
+        open("http://0.0.0.0:9999");
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
         $(".button").click();
@@ -75,7 +75,7 @@ public class NewCardFormTest {
     @Test
     void phoneFieldEmpty() throws InterruptedException {
 
-        open("http://localhost:9999");
+        open("http://0.0.0.0:9999");
         $("[data-test-id='name'] input").setValue("Римский-Корсаков Николай");
         $("[data-test-id=agreement]").click();
         $(".button").click();
@@ -85,7 +85,7 @@ public class NewCardFormTest {
     @Test
     void nameInEnglish() throws InterruptedException {
 
-        open("http://localhost:9999");
+        open("http://0.0.0.0:9999");
         $("[data-test-id='name'] input").setValue("Pavel");
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
@@ -96,7 +96,7 @@ public class NewCardFormTest {
     @Test
     void nameWithDot() throws InterruptedException {
 
-        open("http://localhost:9999");
+        open("http://0.0.0.0:9999");
         $("[data-test-id='name'] input").setValue("Павел.");
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
@@ -107,7 +107,7 @@ public class NewCardFormTest {
     @Test
     void nameWithComma() throws InterruptedException {
 
-        open("http://localhost:9999");
+        open("http://0.0.0.0:9999");
         $("[data-test-id='name'] input").setValue("Павел,");
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
@@ -118,7 +118,7 @@ public class NewCardFormTest {
     @Test
     void nameWithExclamation() throws InterruptedException {
 
-        open("http://localhost:9999");
+        open("http://0.0.0.0:9999");
         $("[data-test-id='name'] input").setValue("Павел!");
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
@@ -129,7 +129,7 @@ public class NewCardFormTest {
     @Test
     void nameWithQuestion() throws InterruptedException {
 
-        open("http://localhost:9999");
+        open("http://0.0.0.0:9999");
         $("[data-test-id='name'] input").setValue("Павел?");
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
@@ -140,7 +140,7 @@ public class NewCardFormTest {
     @Test
     void nameWithPlus() throws InterruptedException {
 
-        open("http://localhost:9999");
+        open("http://0.0.0.0:9999");
         $("[data-test-id='name'] input").setValue("Павел+");
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
@@ -151,7 +151,7 @@ public class NewCardFormTest {
     @Test
     void nameWithEqual() throws InterruptedException {
 
-        open("http://localhost:9999");
+        open("http://0.0.0.0:9999");
         $("[data-test-id='name'] input").setValue("Павел=");
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
@@ -162,7 +162,7 @@ public class NewCardFormTest {
     @Test
     void nameWithRoundBracket() throws InterruptedException {
 
-        open("http://localhost:9999");
+        open("http://0.0.0.0:9999");
         $("[data-test-id='name'] input").setValue("Павел)");
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
@@ -173,7 +173,7 @@ public class NewCardFormTest {
     @Test
     void nameWithBracket() throws InterruptedException {
 
-        open("http://localhost:9999");
+        open("http://0.0.0.0:9999");
         $("[data-test-id='name'] input").setValue("Павел]");
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
@@ -184,7 +184,7 @@ public class NewCardFormTest {
     @Test
     void nameWithAsterisk() throws InterruptedException {
 
-        open("http://localhost:9999");
+        open("http://0.0.0.0:9999");
         $("[data-test-id='name'] input").setValue("Павел*");
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
@@ -195,7 +195,7 @@ public class NewCardFormTest {
     @Test
     void nameWithDollarSign() throws InterruptedException {
 
-        open("http://localhost:9999");
+        open("http://0.0.0.0:9999");
         $("[data-test-id='name'] input").setValue("Павел$");
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
@@ -206,7 +206,7 @@ public class NewCardFormTest {
     @Test
     void nameWithAndSign() throws InterruptedException {
 
-        open("http://localhost:9999");
+        open("http://0.0.0.0:9999");
         $("[data-test-id='name'] input").setValue("Павел&");
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
@@ -217,7 +217,7 @@ public class NewCardFormTest {
     @Test
     void nameWithPercent() throws InterruptedException {
 
-        open("http://localhost:9999");
+        open("http://0.0.0.0:9999");
         $("[data-test-id='name'] input").setValue("Павел%");
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
@@ -228,7 +228,7 @@ public class NewCardFormTest {
     @Test
     void nameWithSharpSign() throws InterruptedException {
 
-        open("http://localhost:9999");
+        open("http://0.0.0.0:9999");
         $("[data-test-id='name'] input").setValue("Павел#");
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
@@ -239,7 +239,7 @@ public class NewCardFormTest {
     @Test
     void nameWithAtSign() throws InterruptedException {
 
-        open("http://localhost:9999");
+        open("http://0.0.0.0:9999");
         $("[data-test-id='name'] input").setValue("Павел@");
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
@@ -250,7 +250,7 @@ public class NewCardFormTest {
     @Test
     void nameWithApostrophe() throws InterruptedException {
 
-        open("http://localhost:9999");
+        open("http://0.0.0.0:9999");
         $("[data-test-id='name'] input").setValue("Павел`");
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
@@ -261,7 +261,7 @@ public class NewCardFormTest {
     @Test
     void nameWithTilde() throws InterruptedException {
 
-        open("http://localhost:9999");
+        open("http://0.0.0.0:9999");
         $("[data-test-id='name'] input").setValue("Павел~");
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
@@ -272,7 +272,7 @@ public class NewCardFormTest {
     @Test
     void nameWithUnderscore() throws InterruptedException {
 
-        open("http://localhost:9999");
+        open("http://0.0.0.0:9999");
         $("[data-test-id='name'] input").setValue("Павел_");
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
@@ -283,7 +283,7 @@ public class NewCardFormTest {
     @Test
     void nameWithArrow() throws InterruptedException {
 
-        open("http://localhost:9999");
+        open("http://0.0.0.0:9999");
         $("[data-test-id='name'] input").setValue("Павел>");
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
@@ -294,7 +294,7 @@ public class NewCardFormTest {
     @Test
     void nameWithSlash() throws InterruptedException {
 
-        open("http://localhost:9999");
+        open("http://0.0.0.0:9999");
         $("[data-test-id='name'] input").setValue("Павел/");
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
@@ -305,7 +305,7 @@ public class NewCardFormTest {
     @Test
     void nameWithFigureBracket() throws InterruptedException {
 
-        open("http://localhost:9999");
+        open("http://0.0.0.0:9999");
         $("[data-test-id='name'] input").setValue("Павел}");
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
@@ -316,7 +316,7 @@ public class NewCardFormTest {
     @Test
     void nameWithQuotation() throws InterruptedException {
 
-        open("http://localhost:9999");
+        open("http://0.0.0.0:9999");
         $("[data-test-id='name'] input").setValue("\"Павел\"");
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
