@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class NewCardFormTest {
     @Test
@@ -26,7 +25,7 @@ public class NewCardFormTest {
         $("[data-test-id='name'] input").setValue("Павел");
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $(".button").click();
-        assertTrue($("[data-test-id=agreement].input_invalid").isDisplayed());
+        $("[data-test-id=agreement].input_invalid").shouldBe(Condition.visible);
     }
 
     @Test
@@ -37,7 +36,7 @@ public class NewCardFormTest {
         $("[data-test-id='phone'] input").setValue("+790123456780");
         $("[data-test-id=agreement]").click();
         $(".button").click();
-        $("[data-test-id='phone'] .input__sub").shouldHave(Condition.exactText("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678."));
+        $("[data-test-id='phone'].input_invalid .input__sub").shouldHave(Condition.exactText("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678."));
     }
 
     @Test
@@ -48,7 +47,7 @@ public class NewCardFormTest {
         $("[data-test-id='phone'] input").setValue("+7901234567");
         $("[data-test-id=agreement]").click();
         $(".button").click();
-        $("[data-test-id='phone'] .input__sub").shouldHave(Condition.exactText("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678."));
+        $("[data-test-id='phone'].input_invalid .input__sub").shouldHave(Condition.exactText("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678."));
     }
 
     @Test
@@ -59,7 +58,7 @@ public class NewCardFormTest {
         $("[data-test-id='phone'] input").setValue("Римский-Корсаков Николай");
         $("[data-test-id=agreement]").click();
         $(".button").click();
-        $("[data-test-id='phone'] .input__sub").shouldHave(Condition.exactText("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678."));
+        $("[data-test-id='phone'].input_invalid .input__sub").shouldHave(Condition.exactText("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678."));
     }
 
     @Test
@@ -69,7 +68,7 @@ public class NewCardFormTest {
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
         $(".button").click();
-        $("[data-test-id=name] .input__sub").shouldHave(Condition.exactText("Поле обязательно для заполнения"));
+        $("[data-test-id=name].input_invalid .input__sub").shouldHave(Condition.exactText("Поле обязательно для заполнения"));
     }
 
     @Test
@@ -79,7 +78,7 @@ public class NewCardFormTest {
         $("[data-test-id='name'] input").setValue("Римский-Корсаков Николай");
         $("[data-test-id=agreement]").click();
         $(".button").click();
-        $("[data-test-id='phone'] .input__sub").shouldHave(Condition.exactText("Поле обязательно для заполнения"));
+        $("[data-test-id='phone'].input_invalid .input__sub").shouldHave(Condition.exactText("Поле обязательно для заполнения"));
     }
 
     @Test
@@ -90,7 +89,7 @@ public class NewCardFormTest {
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
         $(".button").click();
-        $("[data-test-id=name] .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
+        $("[data-test-id=name].input_invalid .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
     }
 
     @Test
@@ -101,7 +100,7 @@ public class NewCardFormTest {
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
         $(".button").click();
-        $("[data-test-id=name] .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
+        $("[data-test-id=name].input_invalid .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
     }
 
     @Test
@@ -112,7 +111,7 @@ public class NewCardFormTest {
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
         $(".button").click();
-        $("[data-test-id=name] .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
+        $("[data-test-id=name].input_invalid .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
     }
 
     @Test
@@ -123,7 +122,7 @@ public class NewCardFormTest {
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
         $(".button").click();
-        $("[data-test-id=name] .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
+        $("[data-test-id=name].input_invalid .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
     }
 
     @Test
@@ -134,7 +133,7 @@ public class NewCardFormTest {
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
         $(".button").click();
-        $("[data-test-id=name] .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
+        $("[data-test-id=name].input_invalid .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
     }
 
     @Test
@@ -145,7 +144,7 @@ public class NewCardFormTest {
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
         $(".button").click();
-        $("[data-test-id=name] .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
+        $("[data-test-id=name].input_invalid .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
     }
 
     @Test
@@ -156,7 +155,7 @@ public class NewCardFormTest {
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
         $(".button").click();
-        $("[data-test-id=name] .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
+        $("[data-test-id=name].input_invalid .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
     }
 
     @Test
@@ -167,7 +166,7 @@ public class NewCardFormTest {
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
         $(".button").click();
-        $("[data-test-id=name] .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
+        $("[data-test-id=name].input_invalid .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
     }
 
     @Test
@@ -178,7 +177,7 @@ public class NewCardFormTest {
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
         $(".button").click();
-        $("[data-test-id=name] .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
+        $("[data-test-id=name].input_invalid .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
     }
 
     @Test
@@ -189,7 +188,7 @@ public class NewCardFormTest {
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
         $(".button").click();
-        $("[data-test-id=name] .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
+        $("[data-test-id=name].input_invalid .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
     }
 
     @Test
@@ -200,7 +199,7 @@ public class NewCardFormTest {
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
         $(".button").click();
-        $("[data-test-id=name] .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
+        $("[data-test-id=name].input_invalid .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
     }
 
     @Test
@@ -211,7 +210,7 @@ public class NewCardFormTest {
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
         $(".button").click();
-        $("[data-test-id=name] .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
+        $("[data-test-id=name].input_invalid .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
     }
 
     @Test
@@ -222,7 +221,7 @@ public class NewCardFormTest {
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
         $(".button").click();
-        $("[data-test-id=name] .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
+        $("[data-test-id=name].input_invalid .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
     }
 
     @Test
@@ -233,7 +232,7 @@ public class NewCardFormTest {
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
         $(".button").click();
-        $("[data-test-id=name] .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
+        $("[data-test-id=name].input_invalid .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
     }
 
     @Test
@@ -244,7 +243,7 @@ public class NewCardFormTest {
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
         $(".button").click();
-        $("[data-test-id=name] .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
+        $("[data-test-id=name].input_invalid .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
     }
 
     @Test
@@ -255,7 +254,7 @@ public class NewCardFormTest {
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
         $(".button").click();
-        $("[data-test-id=name] .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
+        $("[data-test-id=name].input_invalid .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
     }
 
     @Test
@@ -266,7 +265,7 @@ public class NewCardFormTest {
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
         $(".button").click();
-        $("[data-test-id=name] .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
+        $("[data-test-id=name].input_invalid .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
     }
 
     @Test
@@ -277,7 +276,7 @@ public class NewCardFormTest {
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
         $(".button").click();
-        $("[data-test-id=name] .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
+        $("[data-test-id=name].input_invalid .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
     }
 
     @Test
@@ -288,7 +287,7 @@ public class NewCardFormTest {
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
         $(".button").click();
-        $("[data-test-id=name] .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
+        $("[data-test-id=name].input_invalid .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
     }
 
     @Test
@@ -299,7 +298,7 @@ public class NewCardFormTest {
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
         $(".button").click();
-        $("[data-test-id=name] .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
+        $("[data-test-id=name].input_invalid .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
     }
 
     @Test
@@ -310,7 +309,7 @@ public class NewCardFormTest {
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
         $(".button").click();
-        $("[data-test-id=name] .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
+        $("[data-test-id=name].input_invalid .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
     }
 
     @Test
@@ -321,7 +320,7 @@ public class NewCardFormTest {
         $("[data-test-id='phone'] input").setValue("+79012345678");
         $("[data-test-id=agreement]").click();
         $(".button").click();
-        $("[data-test-id=name] .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
+        $("[data-test-id=name].input_invalid .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
     }
 
 
